@@ -1,0 +1,520 @@
+<!doctype html>
+<html manifest="manifest.appcache">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="node_modules/bootstrap/dist/css/Slate.css" />
+    <script src="customerhome.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* footer{
+            position:absolute;
+            bottom: 0%;
+        } */
+
+        .footer-div {
+            height: 5vh;
+            padding: 0;
+            margin: 0;
+            border:0;
+            position: absolute;
+            bottom: 0;
+
+
+
+        }
+
+        .parallax {
+            /* The image used */
+            background-image: url('./Images/hs.jpg');
+            /* Full height */
+            height: 90vh;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax2 {
+            /* The image used */
+            background-image: url('./Images/laptop.jpg');
+            /* Full height */
+            height: 90vh;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax3 {
+            /* The image used */
+            background-image: url('./Images/lightbulb.jpg');
+            /* Full height */
+            height: 90vh;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .parallax4 {
+            /* The image used */
+            background-image: url('./Images/coffee.jpg');
+            /* Full height */
+            height: 90vh;
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        div {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        html {
+            height: 100%
+        }
+        
+        div.cards {
+            background-color: #000000CC;
+            font-size: 30px;
+            height: 40vh;
+            color: white;
+            align-content: center;
+            vertical-align: middle;
+            margin: 0%;
+            border-width: 0ch;
+            padding-top: 350px;
+            padding: 0%;
+
+        }
+
+        div.card-text {
+            align-content: center;
+            font-size: 16px;
+            color: #FFFFFF;
+            transform: translate(0%, 40%);
+            border-width: 0;
+            padding-bottom: 0px;
+        }
+
+        .table {
+            height: 5vh;
+            background-color: rgb(161, 161, 161);
+            border: 1px;
+            color: blanchedalmond;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .table1 {
+            color: #111;
+            width: 100vw;
+            border: 2px;
+            margin: 0%;
+            background-color: rgb(161, 161, 161);
+        }
+
+
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+            height: 100%
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 30px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav img {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="init()">
+
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <span style="font-size:30px;cursor:pointer;color:white;margin-right:10px;" onclick="openNav()">&#9776;</span>
+        <a class="navbar-brand" href="#">AMS</a>
+
+        <ul class="navbar-nav">
+                <li class="nav-item active">
+                        <a class="nav-link" href="#">Customer Home</a>
+                      </li>
+              </ul>
+        <!-- <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">View Appointments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ScheduleAppointments">Schedule Appointment</a>
+              </li>
+            </ul> -->
+        <ul class="navbar-nav ml-auto">
+            <a class="btn btn-info" onclick="logout()">Logout</a>
+        </ul>
+
+    </nav>
+
+
+   <div class="container">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <img src="./Images/log.png" height="100">
+        <a fontsize=11 href="ViewAppointments"><i class="fas fa-search"></i> View Appointments</a>
+        <a href="ScheduleAppointments"><i class="fas fa-user-plus"></i> Schedule Appointment</a>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "320px";
+            document.getElementById("main").style.marginLeft = "320px";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+
+        }
+    </script>
+    <!-- script ends here -->
+    <!--  -->
+    <!--  -->
+    
+
+    <main role="main">
+
+        <div class="jumbotron text-center" id="jumbot">
+            <div class="container">
+                <h1 class="jumbotron-heading">Welcome Customer</h1>
+                <center>
+                    <p class="lead text-muted col-6">Agent Management System gives you the option to review your
+                        appointments or to schedule a new one.</p>
+                </center>
+                <p>
+                    <a class="btn btn-primary my-2" href="ViewAppointments">View Appointments</a>
+                    <a class="btn btn-primary my-2" href="ScheduleAppointments">Schedule Appointments</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="container text-center" id="buttonspace"></div>
+        <div class="container">
+            <div class="row" id="cardspace">
+            </div>
+        </div>
+    </main>
+
+
+    <div class="parallax">
+        <div class="cards">
+                <div style="margin:15px">View Appointments:</div>
+
+            <div class="card-text"> <div style="margin:15px">Upon clicking on the view appointment button, This module allows you to view all the appointments you have scheduled.  It give you details like the time and date of appointment, agent name, etc. Furthermore, the appointments are divided into upcoming and past appoinments for convenience.</div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="parallax2">
+        <div class="cards">
+                <div style="margin:15px">Schedule Appointment:</div>
+            <div class="card-text">
+                    <div style="margin:15px">This module of Agent Management System allows you to schedule an appointment. It requires you to provide details like the date and time slot you prefer to have an appointment. It gives you a success message if the appointment request is successful. </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="parallax3">
+        <div class="cards">
+            Manage Liceneces:
+            <div class="card-text">
+                This page allows you to browse through issued licences and also allows you to add new licences
+
+            </div>
+        </div>
+    </div> -->
+    
+<!-- 
+    <footer>
+        <div class="footer-div">
+            <center>
+               
+                <table class="table1">
+                    <tr>
+                        <th>AMS</th>
+                        <th>Contacts</th>
+                       
+                    </tr>
+                    <tr>
+                        <td>Agent Management System (AMS) is used for insurance agent maintenance, license management, scheduling customer</td>
+                        <td>Raj Kishore Mahli : +918158035053</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>appointmentsfor Insurance policies and agent commission calculation for an insurance consultant</td>
+                        <td>Akash Nair:+917720048849</td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Manish Kumar :+918504826808</td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Manish Golla :+918019267367</td>
+                        
+                    </tr>
+                </table>
+
+            </center>
+
+        </div>
+    </footer> -->
+
+   </div>
+
+
+
+
+
+   <div class="modal" id="aboutModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">About Us</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <center>
+                    <p>
+             This independent application, Agent Management System (AMS) website  is used for insurance agent maintenance, license management, scheduling customer appointments for Insurance policies and agent commission calculation for an insurance consultant. </p>
+                 </center>
+        <hr/>
+                     <p>AMS is a system used for maintaining the details of the Insurance agent like adding the agents, managing the license that has been provided, to schedule customer appointments to know about the Insurance policies, to calculate the commission for each and every insurance agent.  The following are the few important modules in the system
+                    
+                         <br/>   a)  Agent Addition
+                         <br/>     b)    License Management 
+                         <br/>    c) Customer Appointments
+                         <br/>    d) Customer Policy Registration
+                         <br/>     e)    Agent commission.</p>
+     
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" id="contactModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Contact Us</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table class="table table-danger table-hover">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Contact No.</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Akash</td>
+                        <td>8200125536</td>
+                        <td>akashnair@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Manish G</td>
+                        <td>8019267367</td>
+                        <td>golla.manish91@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Manish K</td>
+                        <td>8504826808</td>
+                        <td>manishdavidjones@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Raj Mahli</td>
+                        <td>8158035038</td>
+                        <td>rkmahli@gmail.com</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer font-small blue pt-4" style="background-color: #6375A2;">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase" style="color:white;">AMS</h5>
+                    <p style="color:white;">Welcome to Agent Management System!</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                   
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#aboutModal" style="color: white;">About AMS</button>
+                        </li>
+                    </ul>
+                    <p style="padding: 10px">A brief about this web application. <br>Click to know more!</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#contactModal" style="color: white;">Contact
+                                Us</button>
+                        </li>
+                    </ul>
+
+                    <p style="padding: 10px">Contact details of the creators of this<br> web application. Click here to show!</p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://cognizant.com/" style="color: white;"> Cognizant.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+   
+</body>
+
+
+</html>

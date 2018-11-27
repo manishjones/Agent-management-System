@@ -1,0 +1,133 @@
+<!doctype html>
+<html manifest="manifest.appcache">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome to Agent Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" media="all" href="node_modules/bootstrap/dist/css/Slate.css" />
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="homepage.js"></script>
+  <!-- <script src="homepage.js"></script> -->
+  <!-- <link rel="stylesheet" type="text/css" media="all" href="cover.css" /> -->
+
+  <style>
+     ::-webkit-scrollbar { 
+    display: none; 
+}
+    .btn {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #000000CC;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .btn span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .btn:hover span {
+      padding-right: 25px;
+    }
+
+    .btn:hover span:after {
+      opacity: .5;
+      right: 0;
+    }
+
+    .cover-heading {
+      padding-top: 350px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      color: #ffffff
+    }
+
+    .lead {
+      color: #ffffff;
+      padding-bottom: 0px;
+    }
+
+    
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      
+     
+    }
+    
+
+    .image-container {
+      background-image: url("./Images/overthetable.jpg");
+      
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      height: 100vh;
+    }
+
+    .text{
+  background-color: transparent;
+color:white;
+font-size: 8vw;
+font-weight: bold;
+margin:auto;
+padding:auto;
+border:5px solid white;
+top:15vh;
+left:32vw;
+width:36vw;
+height:13vw;
+text-align:center;
+position: absolute;
+background: -webkit-linear-gradient(#eee,#333);
+    -webkit-background-clip: text;}
+  </style>
+
+</head>
+
+<body class="text-center " id="grad1">
+
+    <div class="container-fluid">
+        <div class="image-container">
+            <div class="text" style="font-size: 8vw">AMS</div>    
+            <div role="main" class="inner cover">
+                <h1 class="cover-heading" id="hometitle">Welcome to Agent Management System!</h1>
+                <p class="lead" id="hometext">Please Login either as a customer or an administrator to continue. Unregistered
+                  customers can register using the link from the sign-in screen.</p>
+                
+                  <p class="lead">
+                      <a href="Login" class="btn btn-lg " style="vertical-align:middle"><span>Get Started</span></a>
+                    </p>
+              </div>
+        </div>
+      </div>
+      
+  
+</body>
+
+</html>

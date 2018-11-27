@@ -1,0 +1,351 @@
+<!doctype html>
+<html manifest="manifest.appcache">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Manage Licences</title>
+
+    <!-- Bootstrap core CSS -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="node_modules/bootstrap/dist/css/Slate.css" />
+    <script src="managelicences.js"></script>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    <style>
+
+
+        ::-webkit-scrollbar { 
+    display: none; 
+}
+
+    
+            body {
+                font-family: "Lato", sans-serif;
+                transition: background-color .5s;
+                background: url(./images/all.jpg);
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #111;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 30px;
+            }
+            .footer{
+            position: fixed;
+            bottom: 0;  
+            width:100%;         
+            }
+            .footer-div {
+            position: fixed;
+            height: 3vh;
+            padding: 0;
+            margin: 0;
+                   }
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+            
+            .sidenav img {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+            
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+            
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+            
+            #main {
+                transition: margin-left .5s;
+                padding: 16px;
+            }
+            
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+            </style>
+</head>
+
+<body onload="init()">
+ <!-- vertical nvabarcode starts here -->
+<!--  -->
+<!--  -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <img src="./Images/log.png" height="100">
+    <a fontsize=11 href="AgentRegistration"> <i class="fas fa-user"></i> Agent Registration</a>
+    <a href="CalculateCommission"><i class="fas fa-money-bill"></i> Calculate Commission</a>
+    <a href="ManageLicences"><i class="fas fa-wrench"></i> Manage Licences</a>
+    <a href="CustomerPolicyRegistration"><i class="fas fa-scroll"></i> Customer Policy Registration</a>
+</div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "320px";
+            document.getElementById("main").style.marginLeft = "320px";
+    
+        }
+        
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            
+        }
+        </script>
+    <!-- script ends here -->
+    <!--  -->
+    <!--  -->
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <span style="font-size:30px;cursor:pointer;color:white;margin-right:10px;" onclick="openNav()">&#9776;</span>
+        <a class="navbar-brand" href="AdminHome">AMS</a>
+<ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="ManageLicences">Manage Licences</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+            <button type="button" class="btn btn-info" onclick="logout()">Logout</button>
+    </ul>
+    </nav>
+
+
+    <main role="main">
+
+        <section class="jumbotron text-center" id="jumbot">
+            <div class="container">
+                <h1 class="jumbotron-heading">Policy Licence Tools</h1>
+                <p>
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-primary my-2" href="ViewLicences">View Policies</a>
+                        <a class="btn btn-primary my-2" href="AddLicence">Add Policy</a>
+                    </div>
+                </p>
+            </div>
+        </section>
+    </main>
+   
+    <div class="modal" id="alertmodal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="alertmodalbody">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="modal" id="aboutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">About Us</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <center>
+                        <p>
+                 This independent application, Agent Management System (AMS) website  is used for insurance agent maintenance, license management, scheduling customer appointments for Insurance policies and agent commission calculation for an insurance consultant. </p>
+                     </center>
+            <hr/>
+                         <p>AMS is a system used for maintaining the details of the Insurance agent like adding the agents, managing the license that has been provided, to schedule customer appointments to know about the Insurance policies, to calculate the commission for each and every insurance agent.  The following are the few important modules in the system
+                        
+                             <br/>   a)  Agent Addition
+                             <br/>     b)    License Management 
+                             <br/>    c) Customer Appointments
+                             <br/>    d) Customer Policy Registration
+                             <br/>     e)    Agent commission.</p>
+         
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal" id="contactModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Contact Us</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-danger table-hover">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Contact No.</th>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Akash</td>
+                            <td>8200125536</td>
+                            <td>akashnair@gmail.com</td>
+                          </tr>
+                          <tr>
+                            <td>Manish G</td>
+                            <td>8019267367</td>
+                            <td>golla.manish91@gmail.com</td>
+                          </tr>
+                          <tr>
+                            <td>Manish K</td>
+                            <td>8504826808</td>
+                            <td>manishdavidjones@gmail.com</td>
+                          </tr>
+                          <tr>
+                            <td>Raj Mahli</td>
+                            <td>8158035038</td>
+                            <td>rkmahli@gmail.com</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    
+    <!-- Footer -->
+</body>
+    <!-- Footer -->
+    <footer class="footer font-small blue pt-4" style="background-color: #6375A2;">
+
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase" style="color:white;">AMS</h5>
+                    <p style="color:white;">Welcome to Agent Management System!</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                   
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#aboutModal" style="color: white;">About AMS</button>
+                        </li>
+                    </ul>
+                    <p style="padding: 10px">A brief about this web application. <br>Click to know more!</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 mb-md-0 mb-3">
+
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#contactModal" style="color: white;">Contact
+                                Us</button>
+                        </li>
+                    </ul>
+
+                    <p style="padding: 10px">Contact details of the creators of this<br> web application. Click here to show!</p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://cognizant.com/" style="color: white;"> Cognizant.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+</footer>
+</html>
