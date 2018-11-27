@@ -1,0 +1,17 @@
+Customer Registration
+{"name":"JOHN001","address":"NOWHERE","city":"ANYWHERE","state":"LIQUID","zipcode":"123456","contactno":"1234567890","email":"QWERT@QWERT.COM","dob":"1990-10-12","mark":"BIG HEAD","height":"1.5","weight":"50","premiums":"5000","income":"50000","password":"QWERTY"}
+
+Agent Registration
+{"name":"PRAKASH01","dob":"1990-02-11","contact":"123456","email":"QWERTY@ASDFGH.COM","address":"RAD STREET","zipcode":"123456","city":"ANY CITY","state":"ANYWHERE","doj":"2018-02-23","type":"CA"}
+
+Appointment Scheduling:
+{"doa":"2018-12-24","slot":"1"}
+
+Add Licence:
+{"name":"Insurance","comname":"ICICI","cid":"CO0001","address":"ANYWHERE","conname":"JOE","contact":"1234567890","email":"QWE@QWE.QWE","dor":"2012-09-12","doe":"2020-10-22"}
+
+Register Policy:
+{"custid":"CU0001","polid":"PO0001","agentid":"AG0001","date":"2016-11-11","sum":"100000","mode":"Cash","comtype":"1","name":"Saha","relation":"Son","dob":"1995-11-11"}
+
+Renew Licence:
+{"id":"PL0001","doe":"2018-11-12"}
